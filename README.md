@@ -37,11 +37,10 @@
 resumeiq/
 ├── src/
 │   ├── helper.py        # extract_text_from_pdf(), ask_openai() via Groq
-│   └── job_api.py       # fetch_linkedin_jobs(), fetch_xing_jobs() via Apify
-├── mcp_server.py        # FastMCP server — exposes job tools over stdio
+    ├── mcp_server.py    # FastMCP server — exposes job tools over stdio
+│   └── job_api.py       # fetch_linkedin_jobs(), fetch_xing_jobs() via Apify  
 ├── app.py               # Main Streamlit UI
-├── .env                 # API keys (never commit this)
-├── .env.example         # Template for contributors
+├── .env                 # API keys 
 ├── requirements.txt
 └── README.md
 ```
@@ -52,7 +51,7 @@ resumeiq/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/resumeiq.git
+git clone https://github.com/hadiszare12/resumeiq.git
 cd resumeiq
 ```
 
@@ -136,31 +135,6 @@ Then ask Claude: *"Find me Data Analyst jobs in Germany"* — it will call your 
 
 ---
 
-## 🚀 How the Full App Works
-
-```
-User uploads PDF
-      ↓
-PyMuPDF extracts raw text
-      ↓
-Groq Llama 3 runs three prompts
-  ├── Resume Summary
-  ├── Skill Gap Analysis
-  └── Career Roadmap
-      ↓
-User clicks "Get Job Recommendations"
-      ↓
-Groq extracts best-fit job title keyword from resume
-      ↓
-Apify fetches live jobs in parallel
-  ├── LinkedIn (keyword + Germany, 60 results)
-  └── Xing (Technology discipline, Germany, 60 results)
-      ↓
-Live job cards rendered with direct apply links
-```
-
----
-
 ## 📦 requirements.txt
 
 ```
@@ -172,21 +146,6 @@ python-dotenv
 mcp
 fastmcp
 ```
-
----
-
-## ⚠️ Common Errors
-
-| Error | Fix |
-|---|---|
-| `No module named 'anthropic'` | Run `python -m pip install` not just `pip install` |
-| `ModuleNotFoundError: pymupdf` | Try `import fitz` instead of `import pymupdf` in helper.py |
-| `Groq 429` | You hit the free rate limit — wait a minute and retry |
-| `ApifyApiError: Input not valid` | Check `startUrl` is `""` not `None` in fetch_xing_jobs |
-| `KeyError: DefaultDatasetId` | Use lowercase `defaultDatasetId` when reading Apify run results |
-| `'OpenAI' object has no attribute 'actor'` | You have a `client` naming conflict — rename Apify client to `apify_client` |
-
----
 
 ## 📄 License
 
