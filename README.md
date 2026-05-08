@@ -2,6 +2,7 @@
 
 > Upload your CV. Get instant AI analysis, skill gap detection, a personalised career roadmap, and live job listings from LinkedIn & Xing — all in one place.
 
+![Profile Picture](./assets/resumeiq.png)
 ---
 
 ## ✨ Features
