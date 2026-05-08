@@ -51,8 +51,8 @@ resumeiq/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/hadiszare12/resumeiq.git
-cd resumeiq
+git clone [https://github.com/hadiszare12/resumeiq.git](https://github.com/HadisZare12/Resume_IQ_MCP.git)
+cd Resume_IQ_MCP
 ```
 
 ### 2. Create and activate a virtual environment
